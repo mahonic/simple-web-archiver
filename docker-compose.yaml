@@ -1,0 +1,15 @@
+services:
+
+  python:
+    build: ./
+    env_file:
+      - .env
+      - .env-local
+    environment:
+      POETRY_VIRTUALENVS_CREATE: false
+      POETRY_CACHE_DIR: "/var/cache/pypoetry"
+      POETRY_HOME: "/user/local"
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - "./src:/app"
